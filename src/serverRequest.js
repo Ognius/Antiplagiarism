@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let payload = 'name=' + encodeURIComponent(document.getElementById('value').value)
 
         const request = new XMLHttpRequest()
-        request.open('POST', 'http://34.86.152.212:8080/cgi-bin/script.cgi', true)
+        request.open('POST', 'http://35.236.72.195:8080/cgi-bin/script.cgi', true)
 
         request.addEventListener('readystatechange', function () {
             console.log(parseInt(request.responseText.replace(/[^\d]/g, '')));
