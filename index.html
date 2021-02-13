@@ -5,83 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="frontend/css/index.css">
-    <link rel="stylesheet" href="frontend/libs/select/select.css">
-    <link rel="stylesheet" href="frontend/css/_normalize.css">
-    <link rel="stylesheet" href="frontend/css/_zeroing.css">
+    <link rel="stylesheet" href="src/index.css">
+    <link rel="stylesheet" href="src/select.css">
+    <link rel="stylesheet" href="src/_normalize.css">
+    <link rel="stylesheet" href="src/_zeroing.css">
     <title>text.AI</title>
 </head>
 
 <body>
-    <section id="container" class="main-container">
-        <section class="container">
-            <section class="title-section">
+    <div id="particles-js"></div>
+
+    <div class="main-container">
+        <div class="container">
+            <div class="title-section">
                 <h1>text.AI</h1>
-            </section>
-            <section class="about-section">
+            </div>
+            <div class="about-section">
                 <h2 id="about-section-main-header">Intelligent App for text processing</h2>
-<!--                <h2 id="about-section-result-header">The result of checking the text for uniqueness</h2>-->
-            </section>
+                <h2 id="about-section-result-header">The result of checking the text for uniqueness</h2>
+                <h2 id="about-section-result-header">The result of checking the text for uniqueness</h2>
+            </div>
             <main>
-                <div id="result" class="hide">
-                    <section id="result-section" class="result-section">
-                        <section class="result-banner">
-                            <section class="result-icon"></section>
-                            <p id="serverAnswer">Your text is 60% unique</p>
-                        </section>
-                        <button id="back" class="result-button">
-                            <p>Back</p>
-                        </button>
-                    </section>
+                <div id="application-field" class="application-field">
+                    <form action="#">
+                        <textarea name="value" id="value" value="" placeholder="Input text..."></textarea>
+                        <div class="application-options">
+
+                            <select class="application-select" name="application-select" id="">
+                                <option value="Uniqueness">Uniqueness</option>
+                                <option value="Repetition">Repetition</option>
+                                <option value="Misprint">Misprint</option>
+                                <option value="Validation">Validation</option>
+                            </select>
+                            <input id="submit-button" value="Check" type="submit"
+                                   class="application-field-select-button" />
+                        </div>
+
+                    </form>
                 </div>
-
-                <div id="content" class="show">
-                    <section id="application-field" class="application-field">
-                        <form class="content__form" method="post">
-                            <textarea id="value" name="value" placeholder="Input text..."></textarea>
-                            <section class="application-options">
-
-                                <select class="application-select" name="application-select" id="">
-                                    <option value="Uniqueness">Uniqueness</option>
-                                    <option value="Repetition">Repetition</option>
-                                    <option value="Misprint">Misprint</option>
-                                    <option value="Validation">Validation</option>
-                                </select>
-                                <input id="send" value="Check" type="submit"
-                                       class="application-field-select-button" />
-                            </section>
-
-                        </form>
-                    </section>
-                    <section id="image-ai" class="image-ai">
-                    </section>
+                <div id="image-ai" class="image-ai">
                 </div>
-
+                <div id="result-section" class="result-section">
+                    <div class="result-banner">
+                        <div class="result-icon"></div>
+                        <p>Your text is 60% unique</p>
+                    </div>
+                    <button id="back-button" class="result-button">
+                        <p>Back</p>
+                    </button>
+                </div>
+                <div id="result" class="result"></div>
             </main>
-            <section class="developers-info">
-                <section class="developers-info-block">
+            <div class="developers-info">
+                <div class="developers-info-block">
                     <a href="#">
-                        <section class="developers-info-block-text-left"></section>
+                        <div class="developers-info-block-text-left"></div>
                     </a>
-                    <section class="developers-info-block-text-middle">Nickname, year</section>
-                    <section class="developers-info-block-text-right">
+                    <div class="developers-info-block-text-middle">Nickname, year</div>
+                    <div class="developers-info-block-text-right">
                         <a href="#">
-                            <section class="social social-gh" href="https://github.com"><i class="fab fa-github"></i>
-                            </section>
+                            <div class="social social-gh" href="https://github.com"><i class="fab fa-github"></i>
+                            </div>
                         </a>
                         <a href="#">
-                            <section class="social social-vk" href="https://vk.com"><i class="fab fa-vk"></i></section>
+                            <div class="social social-vk" href="https://vk.com"><i class="fab fa-vk"></i></div>
                         </a>
                         <a href="#">
-                            <section class="social social-fb" href="https://www.facebook.com"><i
-                                    class="fab fa-facebook-square"></i></section>
+                            <div class="social social-fb" href="https://www.facebook.com"><i
+                                    class="fab fa-facebook-square"></i></div>
                         </a>
 
-                    </section>
-                </section>
-            </section>
-        </section>
-    </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="frontend/script/script.js"></script>
 
     <script src="frontend/libs/select/select.js"></script>
     <script src="https://kit.fontawesome.com/5c6ff8eb8e.js" crossorigin="anonymous"></script>

@@ -129,7 +129,7 @@ main {
     background-color: #ccc;
     cursor: pointer;
 }
-.application-field .application-options .application-select ul > li > section {
+.application-field .application-options .application-select ul > li > div {
     width: 40px;
     height: 35px;
 }
@@ -138,7 +138,7 @@ main {
 .application-select
 ul
 > li:nth-child(1)
-section {
+div {
     background-image: url("../image/select-menu-icons/unique.svg");
 }
 .application-field
@@ -146,7 +146,7 @@ section {
 .application-select
 ul
 > li:nth-child(2)
-section {
+div {
     background-image: url("../image/select-menu-icons/repetition.svg");
 }
 .application-field
@@ -154,7 +154,7 @@ section {
 .application-select
 ul
 > li:nth-child(3)
-section {
+div {
     background-image: url("../image/select-menu-icons/misprint.svg");
 }
 .application-field
@@ -162,7 +162,7 @@ section {
 .application-select
 ul
 > li:nth-child(4)
-section {
+div {
     background-image: url("../image/select-menu-icons/validation.svg");
 }
 .application-field .application-field-select-button {
@@ -348,9 +348,9 @@ main .image-ai {
     .developers-info .developers-info-block {
         flex-wrap: wrap;
         height: auto;
-        justify-content: center;
+        justify-content: center;сейча
     }
-    .developers-info .developers-info-block section {
+    .developers-info .developers-info-block div {
         margin: 15px;
     }
     .developers-info .developers-info-block .developers-info-block-text-right {
@@ -493,4 +493,20 @@ main .image-ai {
 
 .show {
     display: block;
+}
+
+.result {
+    color: #f3f3f3;
+    font-size: 5rem;
+    font-weight: 400;
+    position: absolute;
+    bottom: 0;
+    top: 42%;
+    right: 0;
+    left: 63%;
+    z-index: 999;
+}
+
+.opacity {
+    opacity: .4;
 }
