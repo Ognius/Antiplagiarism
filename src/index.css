@@ -2,27 +2,32 @@
 * {
     font-family: "Exo 2", sans-serif;
 }
+
 body {
     padding: 0;
     margin: 0;
 }
+
 .main-container {
     display: flex;
     justify-content: center;
     width: 100%;
     height: 100vh;
-
+    position: relative;
     overflow-x: hidden;
 }
+
 .container {
     width: calc(100vw - 260px);
     min-width: 335px;
     margin-bottom: 82px;
 }
+
 .title-section {
     display: flex;
     justify-content: center;
 }
+
 .title-section h1 {
     color: #fff;
     font-size: 90px;
@@ -33,10 +38,12 @@ body {
     padding-right: 22px;
     margin-bottom: 0;
 }
+
 .about-section {
     display: flex;
     justify-content: center;
 }
+
 .about-section h2 {
     font-weight: 700;
     padding-left: 6px;
@@ -57,6 +64,7 @@ main {
     width: 100%;
     margin-top: 90px;
 }
+
 .application-field {
     justify-items: center;
     display: flex;
@@ -64,6 +72,7 @@ main {
     justify-content: space-between;
     width: 47.458%;
 }
+
 .application-field .application-options {
     display: flex;
     flex-direction: row;
@@ -87,9 +96,11 @@ main {
     line-height: 22px;
     resize: vertical;
 }
+
 .application-field textarea::placeholder {
     color: #b1afaf;
 }
+
 .application-field .application-options .application-select {
     align-self: center;
     height: 100%;
@@ -99,6 +110,7 @@ main {
     border-radius: 10px;
     outline: none;
 }
+
 .application-field .application-options .application-select ul {
     display: flex;
     flex-direction: column;
@@ -114,7 +126,8 @@ main {
     outline: none;
     background-color: #fff;
 }
-.application-field .application-options .application-select ul > li {
+
+.application-field .application-options .application-select ul>li {
     height: 70px;
     border: 2px solid #191f82;
     background-color: #fff;
@@ -123,46 +136,33 @@ main {
     align-items: center;
     justify-content: start;
 }
-.application-field .application-options .application-select ul > li:hover {
+
+.application-field .application-options .application-select ul>li:hover {
     background-color: #ccc;
     cursor: pointer;
 }
-.application-field .application-options .application-select ul > li > div {
+
+.application-field .application-options .application-select ul>li>div {
     width: 40px;
     height: 35px;
 }
-.application-field
-.application-options
-.application-select
-ul
-> li:nth-child(1)
-div {
+
+.application-field .application-options .application-select ul>li:nth-child(1) div {
     background-image: url("../image/select-menu-icons/unique.svg");
 }
-.application-field
-.application-options
-.application-select
-ul
-> li:nth-child(2)
-div {
+
+.application-field .application-options .application-select ul>li:nth-child(2) div {
     background-image: url("../image/select-menu-icons/repetition.svg");
 }
-.application-field
-.application-options
-.application-select
-ul
-> li:nth-child(3)
-div {
+
+.application-field .application-options .application-select ul>li:nth-child(3) div {
     background-image: url("../image/select-menu-icons/misprint.svg");
 }
-.application-field
-.application-options
-.application-select
-ul
-> li:nth-child(4)
-div {
+
+.application-field .application-options .application-select ul>li:nth-child(4) div {
     background-image: url("../image/select-menu-icons/validation.svg");
 }
+
 .application-field .application-field-select-button {
     background-color: #d448b5;
     height: 100%;
@@ -179,21 +179,30 @@ div {
     padding-right: 1px;
     cursor: pointer;
 }
+
 .application-field .application-field-select-button:hover {
     background-color: #ea95d7;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .application-field .application-field-select-button:active {
     background-color: #9f508e;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transform: translateY(4px);
 }
+
 main .image-ai {
     width: 47.458%;
     height: 340px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
+}
+
+.image-ai__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .developers-info {
@@ -203,6 +212,7 @@ main .image-ai {
     margin-left: auto;
     margin-right: auto;
 }
+
 .developers-info .developers-info-block {
     margin-top: 41px;
     height: 90px;
@@ -223,22 +233,26 @@ main .image-ai {
     padding-left: 35px;
     padding-right: 35px;
 }
+
 .developers-info .developers-info-block .developers-info-block-text-left {
-    background-image: url("../image//incubator-logo.svg");
+    background-image: url("./logo.png");
     background-repeat: no-repeat;
     width: 163px;
     height: 33px;
     margin-left: 5px;
 }
+
 .developers-info .developers-info-block .developers-info-block-text-right {
     display: flex;
     justify-content: space-between;
     width: 170px;
 }
+
 .developers-info-block-text-right .social i {
     font-size: 40px;
     color: #d448b5;
 }
+
 @media screen and (max-width: 931px) {
     .title-section h1 {
         color: #fff;
@@ -266,7 +280,6 @@ main .image-ai {
     .application-field {
         margin-top: 30px;
     }
-
     .developers-info .developers-info-block {
         margin-top: 30px;
     }
@@ -284,7 +297,7 @@ main .image-ai {
     .developers-info .developers-info-block {
         flex-wrap: wrap;
         height: auto;
-        justify-content: center;сейча
+        justify-content: center;
     }
     .developers-info .developers-info-block div {
         margin: 15px;
@@ -444,7 +457,7 @@ main .image-ai {
 }
 
 .opacity {
-    opacity: .4;
+    opacity: 0.4;
 }
 
 #particles-js {
