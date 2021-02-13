@@ -191,10 +191,8 @@ div {
 main .image-ai {
     width: 47.458%;
     height: 340px;
-    background: url("../image/brain-ai.svg") no-repeat;
     background-size: cover;
     background-position: center;
-
     border-radius: 10px;
 }
 

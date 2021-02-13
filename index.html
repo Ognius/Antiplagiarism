@@ -25,25 +25,24 @@
             </div>
             <main>
                 <div id="application-field" class="application-field">
-                    <form action="#">
+                    <form method="post">
                         <textarea name="value" id="value" value="" placeholder="Input text..."></textarea>
                         <div class="application-options">
-
                             <select class="application-select" name="application-select" id="">
                                 <option value="Uniqueness">Uniqueness</option>
                                 <option value="Repetition">Repetition</option>
                                 <option value="Misprint">Misprint</option>
                                 <option value="Validation">Validation</option>
                             </select>
-                            <input id="submit-button" value="Check" type="submit"
-                                   class="application-field-select-button" />
+                            <button type="button" id="send" class="application-field-select-button">Check</button>
                         </div>
-
                     </form>
                 </div>
-                <div id="image-ai" class="image-ai"></div>
-                <div id="result" class="result"></div>
+                <div id="img" class="image-ai">
+                    <img class="image-ai__img" src="src/main.png" alt="main">
+                </div>
             </main>
+            <div id="result" class="result"></div>
             <div class="developers-info">
                 <div class="developers-info-block">
                     <a href="#">
