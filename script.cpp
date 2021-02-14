@@ -16,7 +16,7 @@
 using namespace std;
 using namespace cgicc;
 
-void getCharArrayFromString(string text);
+char* getCharArrayFromString(string text);
 void setNormalizeText(char* text);
 bool isCapitalLetter(char letter);
 void splitString(char* text, int startWordPosition = 0, int count = 1);
@@ -57,7 +57,7 @@ int main()
     return 0;
 }
 
-void getCharArrayFromString(string text){
+char* getCharArrayFromString(string text){
 	char* textArray = new char[text.length()];
 	for(int i = 0; i < text.length(); i++){
 		textArray[i] = text[i];
