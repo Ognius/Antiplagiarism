@@ -6,17 +6,25 @@
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
 #include <cgicc/HTMLClasses.h>
+
+#define ZERO       0
+#define THREE      3
+#define THIRTY_TWO 32
+#define HUNDRED    100
+#define CHARACTERS 1024
+
 using namespace std;
 using namespace cgicc;
 
 char* getCharArrayFromString(string text);
 void setNormalizeText(char* text);
 bool isCapitalLetter(char letter);
-void splitString(char* string, int startWordPosition = 0, int count = 1);
-bool isMatchString(char* str1, char* str2);
-void getResult(char* fragment, char* text, int matchCount, double& unique);
-void strCopy(char s1[], char s2[]);
+void splitString(char* text, int startWordPosition = 0, int count = 1);
+bool isMatchString(char* originalText, char* fragment);
+void getResult(char* fragment, char* originalText, int matchCount, double& unique);
+void strCopy(char firstString[], char secondString[]);
 int strLength(char string[]);
+int countWords(char* text);
 double getUniquePercent(double match, double iterations);
 
 string getDB();
@@ -70,11 +78,10 @@ string getDB(){
 }
 
 void setNormalizeText(char* text) {
-	int count = 0;
 	for (int i = 0; text[i] != '\0'; i++) {
-		if ((text[i] >= 65 and text[i] <= 90) or (text[i] >= 97 and text[i] <= 122)) {
+		if ((text[i] >= 'A' and text[i] <= 'Z') or (text[i] >= 'a' and text[i] <= 'z')) {
 			if (isCapitalLetter(text[i]))
-					text[i] += 32;
+				text[i] += THIRTY_TWO;
 		}
 		else
 			text[i] = ' ';
@@ -82,111 +89,123 @@ void setNormalizeText(char* text) {
 }
 
 bool isCapitalLetter(char letter) {
-	if (letter >= 65 and letter <= 90)
+	if (letter >= 'A' and letter <= 'Z')
 		return true;
 	return false;
 }
 
 void getResult(char* fragment, char* originalText, int matchCount, double& unique) {
-	int i = 0, j = 0;
-	double result = 0, iterationCount = 0;
+	int i = 0, j = 0, iterationCount = 0, numberWord = 0;
+	double result = 0.0;
 
 	setNormalizeText(originalText);	
 	setNormalizeText(fragment);
 
-	char copyFragment[256];
-	char copyFragmentIteration[256];
-	char copyOriginalText[256];
-	char copyOriginalTextIteration[256];	
+	char copyFragment[CHARACTERS];
+	char copyFragmentIteration[CHARACTERS];
+	char copyOriginalText[CHARACTERS];
+	char copyOriginalTextIteration[CHARACTERS];	
 
 	strCopy(copyFragment, fragment);	
 	strCopy(copyFragmentIteration, fragment);	
 	strCopy(copyOriginalText, originalText);
-	strCopy(copyOriginalTextIteration, originalText);	
 	splitString(copyOriginalTextIteration);
 	
-	while (strLength(copyOriginalTextIteration) > 0) {
+	while (strLength(copyFragmentIteration) > 0) {
 		iterationCount++;
-		splitString(copyOriginalText, i, matchCount);
-		strCopy(copyFragmentIteration, fragment);
-		splitString(copyFragmentIteration);		
-		while (strLength(copyFragmentIteration) > 0) {			
-			splitString(copyFragment, j, matchCount);
-			if (isMatchString(copyOriginalText, copyFragment)) {
-				iterationCount++;
-				result++;
-			}
-			strCopy(copyFragment, fragment);
-			strCopy(copyFragmentIteration, fragment);
-			j++;
-			splitString(copyFragmentIteration, j);
-		}
-		strCopy(copyOriginalText, originalText);
+		splitString(copyFragment, i, matchCount);
 		strCopy(copyOriginalTextIteration, originalText);
+		splitString(copyOriginalTextIteration);	
+		while (strLength(copyOriginalTextIteration) > 0) {
+			splitString(copyOriginalText, j, matchCount);
+			if (isMatchString(copyOriginalText, copyFragment))
+				result++;
+			strCopy(copyOriginalText, originalText);
+			strCopy(copyOriginalTextIteration, originalText);
+			j++;
+			splitString(copyOriginalTextIteration, j);
+			numberWord = countWords(originalText) - j;
+            if (numberWord < THREE)
+                break;
+		}
+		strCopy(copyFragment, fragment);
+		strCopy(copyFragmentIteration, fragment);
 		i++;
 		j = 0;
-		splitString(copyOriginalTextIteration, i);
+		splitString(copyFragmentIteration, i);
+		numberWord = countWords(fragment) - i;
+		if (numberWord < THREE)
+		    break;
 	}
 	unique = getUniquePercent(result, iterationCount);	
 }
 
-void splitString(char* string, int startWordPosition, int count) {
-	char buf[256];
-	int length = 0;
-	int words = 0;
+void splitString(char* text, int startWordPosition, int count) {
+	char buf[CHARACTERS];
+	int length = 0, word = 0, i = 0, j = 0;
 	bool flag = false;
-	int i = 0, j = 0;
 
 	count += startWordPosition;	
-	while (string[i] != '\0') {
-		if (startWordPosition >= count)
-			break;
-		while (string[i] == ' ') {
+	while (text[i] != '\0') {
+		while (text[i] == ' ') {
 			if (!flag)
-				words++;
+				word++;
 			flag = true;
 			i++;
 		}
 		flag = false;
-		if (count == words)
+		if (count == word)
 			break;
-		if (startWordPosition <= words) {
-			buf[j] = string[i];			
+		if (startWordPosition <= word) {
+			buf[j] = text[i];			
 			length++;
 			j++;
 		}
 		i++;
 	}
-
-	for (i = 0; string[i] != '\0'; i++)	{
+	for (i = 0; text[i] != '\0'; i++)	{
 		if (i < length)
-		{
-			string[i] = buf[i];
-			
-		}
+			text[i] = buf[i];
 		else
-			string[i] = '\0';
+			text[i] = '\0';
 	}
 }
 
-bool isMatchString(char* str1, char* str2) {
-	if (strLength(str1) != strLength(str2))
+int countWords(char* text) {
+	int word = 0;
+	bool flag = false; 
+		
+  	for (int i = 0; text[i] != '\0'; i++) {
+  		if (text[i] != ' ' and flag == false) {
+  			word++;
+  			flag = true;
+  		}
+  		else {
+  			if (text[i] == ' ')
+  				flag = false;
+  		}  			
+  	}
+  	return word;
+}
+
+bool isMatchString(char* originalText, char* fragment) {
+	if (strLength(originalText) != strLength(fragment))
 		return false;
 		
-	for (int i = 0; str1[i] != '\0'; i++) {
-		if (str1[i] != str2[i])
+	for (int i = 0; originalText[i] != '\0'; i++) {
+		if (originalText[i] != fragment[i])
 			return false;
 	}
 	return true;
 }
 
-void strCopy(char s1[], char s2[]) {
-	int length = strLength(s2);
+void strCopy(char firstString[], char secondString[]) {
+	int length = strLength(secondString);
 
 	for (int i = 0; i <= length; i++) {
 		if (i == length)
-			s1[i] = '\0';
-		s1[i] = s2[i];
+			firstString[i] = '\0';
+		firstString[i] = secondString[i];
 	}
 }
 
@@ -199,12 +218,14 @@ int strLength(char string[]) {
 	return counter;
 }
 
-double getUniquePercent(double match, double iterations) {
-	double result;
+double getUniquePercent(double match, double iteration) {
+	double result = 0.0;
 
 	if (!match)
-		return 100;
+		return HUNDRED;
+	if (match > iteration)
+	    return ZERO;
 
-	result = (iterations - match) / iterations * 100;
+	result = (iteration - match) / iteration * HUNDRED;
 	return result;
 }
