@@ -44,10 +44,10 @@ int main()
     
     name = form("name");
     antiPlagiarism(getCharArrayFromString(name), getCharArrayFromString(getDB()), 3, unique);
-    if (!name.empty()) {
-    	cout << fixed;
-		cout.precision(1);
-		cout << unique << "\n";
+    cout << fixed;
+    cout.precision(1);
+    if (!name.empty()) {    	
+	cout << unique << "\n";
     }
     else
     	cout << "Text is not provided!\n";
