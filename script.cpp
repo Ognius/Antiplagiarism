@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include <iomanip>
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,7 +46,7 @@ int main()
     name = form("name");
     antiPlagiarism(getCharArrayFromString(name), getCharArrayFromString(getDB()), 3, unique);    
     if (!name.empty())	
-	cout << floor(unique * 10) / 10 << "\n";
+	cout << fixed << setprecision(1) << unique << "\n";
     else
     	cout << "Text is not provided!\n";
     	
