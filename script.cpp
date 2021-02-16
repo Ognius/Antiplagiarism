@@ -21,12 +21,11 @@ void setNormalizeText(char* text);
 bool isCapitalLetter(char letter);
 void splitString(char* text, int startWordPosition = 0, int count = 1);
 bool isMatchString(char* originalText, char* fragment);
-void getResult(char* fragment, char* originalText, int matchCount, double& unique);
+void antiPlagiarism(char* fragment, char* originalText, int matchCount, double& unique);
 void strCopy(char firstString[], char secondString[]);
 int strLength(char string[]);
 int countWords(char* text);
 double getUniquePercent(double match, double iterations);
-
 string getDB();
 
 int main()
@@ -44,12 +43,15 @@ int main()
     cout << "<p>";
     
     name = form("name");
-    getResult(getCharArrayFromString(name), getCharArrayFromString(getDB()), 3, unique);
+    antiPlagiarism(getCharArrayFromString(name), getCharArrayFromString(getDB()), 3, unique);
     if (!name.empty()) {
-    	cout << unique << "\n";
-    } else {
+    	cout << fixed;
+		cout.precision(1);
+		cout << unique << "\n";
+    }
+    else
     	cout << "Text is not provided!\n";
-    }	
+    	
     cout << "</p>\n";
     cout << "</body>\n";
     cout << "</html>\n";
@@ -94,7 +96,7 @@ bool isCapitalLetter(char letter) {
 	return false;
 }
 
-void getResult(char* fragment, char* originalText, int matchCount, double& unique) {
+void antiPlagiarism(char* fragment, char* originalText, int matchCount, double& unique) {
 	int i = 0, j = 0, iterationCount = 0, numberWord = 0;
 	double result = 0.0;
 
