@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(request.responseText);
             console.log(parseInt(request.responseText.replace(/[^\d]/g, '')));
             document.querySelector("#img").classList.add('opacity');
-            document.querySelector("#result").innerHTML = `${parseFloat(request.responseText)} % unique`;
-            // document.querySelector("#result").innerHTML = `${parseInt(request.responseText.replace(/[^\d]/g, ''))} % unique`;
+            document.querySelector("#result").innerHTML = `${parseInt(request.responseText.replace(/[^\d]/g, ''))} % unique`;
         })
 
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
