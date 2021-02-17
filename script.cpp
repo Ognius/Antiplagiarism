@@ -83,7 +83,7 @@ char* getCharArrayFromString(string text){
 	char* textArray = new char[text.length()];
 	for(int i = 0; i < text.length(); i++)
 		textArray[i] = text[i];
-	textArray[i] = '\0';	
+		
 	return textArray;
 }
 
