@@ -111,58 +111,6 @@ main {
     outline: none;
 }
 
-.application-field .application-options .application-select ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    position: relative;
-    border: 2px solid #191f82;
-    box-sizing: border-box;
-    border-radius: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    outline: none;
-    background-color: #fff;
-}
-
-.application-field .application-options .application-select ul>li {
-    height: 70px;
-    border: 2px solid #191f82;
-    background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-}
-
-.application-field .application-options .application-select ul>li:hover {
-    background-color: #ccc;
-    cursor: pointer;
-}
-
-.application-field .application-options .application-select ul>li>div {
-    width: 40px;
-    height: 35px;
-}
-
-.application-field .application-options .application-select ul>li:nth-child(1) div {
-    background-image: url("../image/select-menu-icons/unique.svg");
-}
-
-.application-field .application-options .application-select ul>li:nth-child(2) div {
-    background-image: url("../image/select-menu-icons/repetition.svg");
-}
-
-.application-field .application-options .application-select ul>li:nth-child(3) div {
-    background-image: url("../image/select-menu-icons/misprint.svg");
-}
-
-.application-field .application-options .application-select ul>li:nth-child(4) div {
-    background-image: url("../image/select-menu-icons/validation.svg");
-}
-
 .application-field .application-field-select-button {
     background-color: #d448b5;
     height: 100%;
@@ -234,7 +182,7 @@ main .image-ai {
     padding-right: 35px;
 }
 
-.developers-info .developers-info-block .developers-info-block-text-left {
+.developers-info .developers-info-block .developers-info-block-logo {
     background-image: url("./logo.png");
     background-repeat: no-repeat;
     width: 163px;
@@ -242,15 +190,15 @@ main .image-ai {
     margin-left: 5px;
 }
 
-.developers-info .developers-info-block .developers-info-block-text-right {
+.developers-info .developers-info-block .developers-info-block-socials {
     display: flex;
     justify-content: space-between;
     width: 170px;
 }
 
-.developers-info-block-text-right .social i {
-    font-size: 40px;
-    color: #d448b5;
+.developers-info-block-socials img{
+    height: 40px;
+    padding: 0 10px;
 }
 
 @media screen and (max-width: 931px) {
@@ -302,7 +250,7 @@ main .image-ai {
     .developers-info .developers-info-block div {
         margin: 15px;
     }
-    .developers-info .developers-info-block .developers-info-block-text-right {
+    .developers-info .developers-info-block .developers-info-block-socials {
         width: auto;
     }
 }
@@ -410,7 +358,7 @@ main .image-ai {
     .developers-info {
         margin-top: 30px;
     }
-    .developers-info .developers-info-block .developers-info-block-text-left {
+    .developers-info .developers-info-block .developers-info-block-logo {
         margin-top: 28px;
         background-position: center;
         background-size: contain;
@@ -418,7 +366,7 @@ main .image-ai {
         height: 33px;
         margin-left: 15px;
     }
-    .developers-info-block-text-middle {
+    .developers-info-block-info {
         margin-top: 1px !important;
     }
     .developers-info .developers-info-block section {
@@ -427,13 +375,10 @@ main .image-ai {
         margin-right: 10px;
         margin-bottom: 10px;
     }
-    .developers-info-block-text-right {
+    .developers-info-block-socials {
         margin-bottom: 12px !important;
         margin-top: 0px !important;
-    }
-    .developers-info-block-text-right .social i {
-        font-size: 44px;
-    }
+    }    
 }
 
 .hide {
@@ -446,13 +391,13 @@ main .image-ai {
 
 .result {
     color: #f3f3f3;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 400;
     position: absolute;
-    bottom: 0;
-    top: 42%;
+    bottom: auto;
+    top: 41%;
     right: 0;
-    left: 63%;
+    left: 57%;
     z-index: 999;
 }
 
