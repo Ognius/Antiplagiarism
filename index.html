@@ -27,12 +27,42 @@
                     <form class="application-form" method="post">
                         <textarea name="value" id="value" placeholder="Input text..."></textarea>
                         <div class="application-options">
-                            <select class="application-select" name="application-select" id="">
-                                <option value="Uniqueness">Uniqueness</option>
-                                <option value="Repetition">Repetition</option>
-                                <option value="Misprint">Misprint</option>
-                                <option value="Validation">Validation</option>
-                            </select>
+                            <div class="application-select">
+                                <div class="select__arrow"><span class="arrow-select"></span></div>
+                                <div class="select__current select-value">
+                                    <div class="select__icon">
+                                        <img src="src/uniqueness.png" alt="uniqueness">
+                                    </div>
+                                    <p class="select__text">Uniqueness</p>
+                                </div>
+                                <div class="select__body">
+                                    <div class="select__arrow"><span class="arrow-select"></span></div>
+                                    <div class="select-option select-value">
+                                        <div class="select__icon">
+                                            <img src="src/uniqueness.png" alt="uniqueness">
+                                        </div>
+                                        <p class="select__text">Uniqueness</p>
+                                    </div>
+                                    <div class="select-disable select-value">
+                                        <div class="select__icon">
+                                            <img src="src/repetition.png" alt="repetition">
+                                        </div>
+                                        <p class="select__text">Repetition</p>
+                                    </div>
+                                    <div class="select-disable select-value">
+                                        <div class="select__icon">
+                                            <img src="src/misprint.png" alt="misprint">
+                                        </div>
+                                        <p class="select__text">Misprint</p>
+                                    </div>
+                                    <div class="select-disable select-value">
+                                        <div class="select__icon">
+                                            <img src="src/validation.png" alt="validation">
+                                        </div>
+                                        <p class="select__text">Validation</p>
+                                    </div>
+                                </div>                                
+                            </div>
                             <button type="button" id="send" class="application-field-select-button">Check</button>
                         </div>
                     </form>
@@ -44,23 +74,14 @@
             <div id="result" class="result"></div>
             <div class="developers-info">
                 <div class="developers-info-block">
-                    <a href="#">
-                        <div class="developers-info-block-text-left"></div>
-                    </a>
-                    <div class="developers-info-block-text-middle">Nickname, year</div>
-                    <div class="developers-info-block-text-right">
-                        <a href="#">
-                            <div class="social social-gh" href="https://github.com"><i class="fab fa-github"></i>
-                            </div>
+                    <a href="http://devincubator.by/" class="developers-info-block-logo"></a>
+                    <div class="developers-info-block-info">Alex & Vital, 2021</div>
+                    <span class="developers-info-block-socials">
+                        <a href="https://github.com"><img src="src/github.png" alt="github"></a>
+                        <a href="https://vk.com"><img src="src/vk.png" alt="vk"></a>
+                        <a href="https://www.facebook.com"><img src="src/facebook.png" alt="facebook"></a>
                         </a>
-                        <a href="#">
-                            <div class="social social-vk" href="https://vk.com"><i class="fab fa-vk"></i></div>
-                        </a>
-                        <a href="#">
-                            <div class="social social-fb" href="https://www.facebook.com"><i class="fab fa-facebook-square"></i></div>
-                        </a>
-
-                    </div>
+                    </span>
                 </div>
             </div>
         </div>

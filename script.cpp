@@ -16,8 +16,9 @@
 using namespace std;
 using namespace cgicc;
 
-char* getCharArrayFromString(string text);
+string getDB();
 void setNormalizeText(char* text);
+char* getCharArrayFromString(string text);
 bool isCapitalLetter(char letter);
 void splitString(char* text, int startWordPosition = 0, int count = 1);
 bool isMatchString(char* originalText, char* fragment);
@@ -26,7 +27,6 @@ void strCopy(char firstString[], char secondString[]);
 int strLength(char string[]);
 int countWords(char* text);
 double getUniquePercent(double match, double iterations);
-string getDB();
 
 int main()
 {
@@ -56,14 +56,6 @@ int main()
     return 0;
 }
 
-char* getCharArrayFromString(string text){
-	char* textArray = new char[text.length()];
-	for(int i = 0; i < text.length(); i++){
-		textArray[i] = text[i];
-	}
-	return textArray;
-}
-
 string getDB(){
 	std::ifstream in("db.txt");
 
@@ -85,6 +77,14 @@ void setNormalizeText(char* text) {
 		else
 			text[i] = ' ';
 	}
+}
+
+char* getCharArrayFromString(string text){
+	char* textArray = new char[text.length()];
+	for(int i = 0; i < text.length(); i++)
+		textArray[i] = text[i];
+		
+	return textArray;
 }
 
 bool isCapitalLetter(char letter) {
