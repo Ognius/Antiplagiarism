@@ -94,9 +94,9 @@
 }
 
 .select__text {
-  user-select: none;
-  font-family: "Roboto", sans-serif;
-  font-size: calc(5vw - 40px);
+  user-select: none;  
+  font-size: 25px;
+  font-weight: 500;
   line-height: 28px;
   color: #000000;
   transition: all 0.2s;
